@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-container">
+        <header>
+            <h1>User Management</h1>
+            <div class="auth-box">
+                <span id="currentUser">Not logged in</span>
+                <button id="logoutBtn" class="btn-secondary">Logout</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="actions">
+                <button id="addUserBtn" class="btn-primary">Add New User</button>
+                <button id="refreshBtn" class="btn-icon">🔄</button>
+            </div>
+
+            <div class="table-container">
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userList">
+                        <!-- Users will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content glass">
+            <h2 id="authTitle">Authentication Required</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="authUsername" required>
+                </div>
+                <div id="emailGroup" class="input-group" style="display: none;">
+                    <label>Email</label>
+                    <input type="email" id="authEmail">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="authPassword" required>
+                </div>
+                <button type="submit" id="authSubmit" class="btn-primary">Login</button>
+                <div class="auth-footer">
+                    <p id="authHint">Don't have an account? <a href="#" id="toggleAuth">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- User Form Modal -->
+    <div id="userModal" class="modal">
+        <div class="modal-content glass">
+            <h2 id="modalTitle">Add New User</h2>
+            <form id="userForm">
+                <input type="hidden" id="userId">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="input-group" id="passwordGroup">
+                    <label>Password</label>
+                    <input type="password" id="password">
+                </div>
+                <div class="input-group">
+                    <label>Role</label>
+                    <select id="role">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">Save User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
